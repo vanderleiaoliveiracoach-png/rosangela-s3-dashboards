@@ -1,0 +1,21 @@
+[build]
+  command = "echo 'Static site - no build needed'"
+  publish = "public"
+  functions = "functions"
+
+[dev]
+  command = "npx netlify-cli dev"
+  port = 8888
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type"
+    Cache-Control = "no-cache, no-store, must-revalidate"
